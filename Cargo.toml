@@ -2,5 +2,11 @@
 name = "pamper"
 version = "0.1.0"
 edition = "2021"
+description = "A very minimal library to save image data to .pam files."
+license = "0BSD"
+license-file = "LICENSE"
+readme = "README.md"
+keywords = ["pam", "image"]
+repository = "https://github.com/odwngit/pamper"
 
 [dependencies]
