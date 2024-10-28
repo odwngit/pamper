@@ -1,6 +1,6 @@
 [package]
 name = "pamper"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 description = "A very minimal library to save image data to .pam files."
 license = "0BSD"
