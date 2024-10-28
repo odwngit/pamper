@@ -23,6 +23,16 @@ fn depth_to_tupletype(depth: u8, alpha: bool, maxval: u32) -> String {
     return inferred_tupletype;
 }
 
+/*
+Saves data in the form of a Vec<u8> to a file specified by path.
+Arguments:
+- path &str - path where the file is saved e.g. "output.pam"
+- width u32 - width of the image
+- height u32 - height of the image
+- depth u8 - number of bytes per pixel e.g. 4 for RGBA
+- alpha bool - true if the image has an alpha channel
+- data Vec<u8> - image data
+*/
 pub fn save_pam(path: &str, width: u32, height: u32, depth: u8, alpha: bool, data: Vec<u8>) {
     let mut file = OpenOptions::new()
         .write(true)
