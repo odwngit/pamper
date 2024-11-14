@@ -2,6 +2,7 @@
 
 use std::fs::OpenOptions;
 use std::io::Write;
+use std::process;
 
 fn depth_to_tupletype(depth: u8, alpha: bool, maxval: u32) -> String {
     let mut inferred_tupletype: String = "".to_owned();
@@ -34,10 +35,17 @@ Arguments:
 - data Vec<u8> - image data
 */
 pub fn save_pam(path: &str, width: u32, height: u32, depth: u8, alpha: bool, data: Vec<u8>) {
-    let mut file = OpenOptions::new()
+    let file_open = OpenOptions::new()
         .write(true)
         .create(true)
-        .open(path).unwrap();
+        .open(path);
+
+    let mut file = match file_open {
+        Ok(f) => f,
+        Err(_) => {
+            process::exit(1);
+        }
+    };
 
     let mut header: String = "P7\n".to_owned();
 
